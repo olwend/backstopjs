@@ -1,0 +1,73 @@
+{
+  "id": "backstop_default",
+
+// add multiple to proof against devices
+  "viewports": [
+    {
+      "label": "phone",
+      "width": 320,
+      "height": 480
+    },
+    {
+      "label": "tablet",
+      "width": 1024,
+      "height": 768
+    }
+  ],
+
+  // set up cookies
+  "onBeforeScript": "chromy/onBefore.js",
+  // specify user actions - chromy or casper
+  "onReadyScript": "chromy/onReady.js",
+  // set up tests
+  "scenarios": [
+    {
+      "label": "NHM Homepage",
+      "onReadyScript": ,
+      "onBeforeScript":,
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "https://staging.nhm.ac.uk/",
+      "referenceUrl": "http://www.nhm.ac.uk/",
+      "readyEvent": "",
+      // delay screen capture until selector with id e.g. "readySelector": "#catOfTheDayResult"
+      "readySelector": "",
+      "delay": 0,
+      // e.g. during dev or for dynamic content
+      "hideSelectors": [],
+      "removeSelectors": [],
+      "hoverSelector": "",
+      // can define action within this scenario or in OnReady.js type of file
+      "clickSelector": "",
+      // can wait for selector to appear
+      "postInteractionWait": "",
+      // set item which is being reviewed
+      "selectors": ["viewport", "#visit"],
+//       "selectors": [
+//       ".aListOfStuff li"
+//     ],
+//     "selectorExpansion": true
+//   }
+// ]
+// captures all <li> tags inside .aListOfStuff  "selectorExpansion": false captures first ,li. tag only
+      "selectorExpansion": true,
+      // tolerance of difference
+      "misMatchThreshold" : 0.1,
+      // to mitigate variance in size set to false
+      "requireSameDimensions": true
+    }
+  ],
+  "paths": {
+    "bitmaps_reference": "backstop_data/bitmaps_reference",
+    "bitmaps_test": "backstop_data/bitmaps_test",
+    "engine_scripts": "backstop_data/engine_scripts",
+    "html_report": "backstop_data/html_report",
+    "ci_report": "backstop_data/ci_report"
+  },
+  "report": ["browser"],
+  "engine": "chrome",
+  "engineFlags": [],
+  "asyncCaptureLimit": 5,
+  "asyncCompareLimit": 50,
+  "debug": false,
+  "debugWindow": false
+}
