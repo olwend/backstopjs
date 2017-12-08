@@ -8,8 +8,9 @@ You will also need Casper and Phantom
 
  ```npm install -g casperjs```
  
- ```npm install -g casperjs```
+ ```npm install -g phantom js```
 
+ ```npm install -g chromy js```
 The configuration is controlled by backstop.json.  
 ## Configuration
 
